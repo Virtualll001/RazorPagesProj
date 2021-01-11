@@ -1,0 +1,131 @@
+﻿@page
+@model RazorPagesProj.Pages.ViewKuch.IndexModel
+@{
+    ViewData["Title"] = "Kuchařka";
+}
+<br />
+<div class="container row p-0 m-0">
+    @*padding a margin = 0*@
+    <div class="col-9">
+        @*Bootstrap = v jedné řadě 12 sloupců*@
+        <h2 class="text-info">Kuchařka</h2>@*Bootst. "-info" = modro-zelená barva*@
+    </div>
+    <div class="col-3">
+        <a asp-page="Create" class="btn btn-info form-control w-auto text-white">Nový recept</a>
+    </div>
+
+    <div class="col-12 border p-3 mt-3">
+        @*margin top = 3*@
+        <form method="post">
+            @if (Model.Kucharka.Count() > 0)
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            <label asp-for="Kucharka.FirstOrDefault().Jmeno"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Kucharka.FirstOrDefault().Ingredience"></label>
+                            @*druhý možný způsobu zápisu bez tag-helpers:
+                                @Html.DisplayNameFor(m=>m.Kucharka.FirstOrDefault().Ingredience)*@
+                        </th>
+                        <th>
+                            <label asp-for="Kucharka.FirstOrDefault().Recept"></label>
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.Kucharka)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => item.Jmeno)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Ingredience)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Recept)
+                            </td>
+                            <td>
+                                @*Tento řádek nahradí stránku Delete + metoda v Razor Indexu - OnPostDelete!*@
+                                <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Určitě chcete recept vymazat?')" class="btn btn-danger btn-sm">Smazat</button>
+                                <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Upravit</a>
+                                @*stiskem tlačítka Upravit přejdeme na stránku Edit a předáme jí Id receptu!*@
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <p>V kuchařce zatím nejsou žádné recepty...</p>
+            }
+        </form>
+    </div>
+
+    <!--<div class="col-12" style="text-align:center">
+        <br />
+        <span class="h3 text-info">Nebo</span>
+        <br />
+        <br />
+    </div>
+    <div class="col-12 border p-3">
+
+        <table id="DT_load" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Jméno</th>
+                    <th>Ingredience</th>
+                    <th>Recept</th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>-->@*tato tabulka se načte javascriptem - DT_load je důležité!!!*@
+    <!--</div>
+</div>
+@section Scripts{
+<script src="~/js/kucharkaSeznam.js"></script>
+ }-->
+
+
+
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kucharka[0].Jmeno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kucharka[0].Ingredience)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kucharka[0].Recept)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Kucharka)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Jmeno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ingredience)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Recept)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Upravit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">Detail</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Smazat</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@
+
+

@@ -1,0 +1,114 @@
+﻿@page
+@model RazorPagesProj.Pages.ViewKuch.EditModel
+
+@{
+    ViewData["Title"] = "Upravit";
+}
+
+<header><h2 class="text-info">Upravit recept</h2></header>
+<article>
+    <div class="border container" style="padding:30px;">
+        <form method="post">
+            @*důležité pole, na které se zapomíná - nelze updatovat bez Id - aby se nová data uložila, potřebují mít i ID - toto pole je skryté*@
+            <input type ="hidden" asp-for="Kucharka.Id" />
+
+            <div classs="text-danger" asp-validation-summary="ModelOnly"></div>
+            @*validace - na straně serveru*@
+            <div class="form-group row">
+                <div class="col-3">
+                    <label asp-for="Kucharka.Jmeno"></label>
+                </div>
+                <div class="col-6">
+                    <input asp-for="Kucharka.Jmeno" class="form-control" />
+                </div>
+                <span asp-validation-for="Kucharka.Jmeno" class="text-danger"></span>
+                @*prostor pro chybovou hlášku - pod každým inputem*@
+            </div>
+            <div class="form-group row">
+                <div class="col-3">
+                    <label asp-for="Kucharka.Ingredience"></label>
+                </div>
+                <div class="col-6">
+                    <input asp-for="Kucharka.Ingredience" class="form-control" />
+                </div>
+                <span asp-validation-for="Kucharka.Ingredience" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-3">
+                    <label asp-for="Kucharka.Recept"></label>
+                </div>
+                <div class="col-6">
+                    <input asp-for="Kucharka.Recept" class="form-control" />
+                </div>
+                <span asp-validation-for="Kucharka.Recept" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-3 offset-3">
+                    <input type="submit" value="Aktualizovat" class="btn btn-primary form-control" />
+                </div>
+                <div class="col-3">
+                    <a asp-page="Index" class="btn btn-success form-control">Zpět</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</article>
+
+@*validace na straně klienta:*@
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Kucharka.Id" />
+                <div class="form-group">
+                    <label asp-for="Kucharka.Jmeno" class="control-label"></label>
+                    <input asp-for="Kucharka.Jmeno" class="form-control" />
+                    <span asp-validation-for="Kucharka.Jmeno" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Kucharka.Ingredience" class="control-label"></label>
+                    <input asp-for="Kucharka.Ingredience" class="form-control" />
+                    <span asp-validation-for="Kucharka.Ingredience" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Kucharka.Recept" class="control-label"></label>
+                    <input asp-for="Kucharka.Recept" class="form-control" />
+                    <span asp-validation-for="Kucharka.Recept" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Uložit" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="./Index">Zpět</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@

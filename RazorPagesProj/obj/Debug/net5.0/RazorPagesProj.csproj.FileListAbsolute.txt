@@ -452,3 +452,4 @@ C:\Users\lonet\source\repos\RazorPagesProj\RazorPagesProj\obj\Debug\net5.0\Razor
 C:\Users\lonet\source\repos\RazorPagesProj\RazorPagesProj\obj\Debug\net5.0\Razor\Pages\ViewKuch\Edit.cshtml.g.cs
 C:\Users\lonet\source\repos\RazorPagesProj\RazorPagesProj\obj\Debug\net5.0\Razor\Pages\ViewKuch\Index.cshtml.g.cs
 C:\Users\lonet\source\repos\RazorPagesProj\RazorPagesProj\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
+C:\Users\lonet\source\repos\RazorPagesProj\RazorPagesProj\obj\Debug\net5.0\Razor\Pages\ViewKuch\Upsert.cshtml.g.cs

@@ -11,7 +11,7 @@
         <h2 class="text-info">Kuchařka</h2>@*Bootst. "-info" = modro-zelená barva*@
     </div>
     <div class="col-3">
-        <a asp-page="Create" class="btn btn-info form-control w-auto text-white">Nový recept</a>
+        <a asp-page="Upsert" class="btn btn-info form-control w-auto text-white">Nový recept</a>
     </div>
 
     <div class="col-12 border p-3 mt-3">
@@ -64,9 +64,11 @@
         </form>
     </div>
 
-    <!--<div class="col-12" style="text-align:center">
+    <div class="col-12" style="text-align:center">
         <br />
-        <span class="h3 text-info">Nebo</span>
+        <span class="h3 text-info">Vylepšená verze tabulky</span><br />
+        <br />
+        <p>Přidané sortování + lepší vyskakovací okna a potvrzovací hlášky.</p>
         <br />
         <br />
     </div>
@@ -81,16 +83,26 @@
                     <th></th>
                 </tr>
             </thead>
-        </table>-->@*tato tabulka se načte javascriptem - DT_load je důležité!!!*@
-    <!--</div>
+        </table>@*tato tabulka se načte javascriptem viz níže; DT_load je důležitý - hlídat spelling!!!*@
+    </div>
 </div>
 @section Scripts{
 <script src="~/js/kucharkaSeznam.js"></script>
- }-->
+ }
+
+ 
 
 
 
-@*<table class="table">
+
+
+
+
+
+
+
+@* Vygenerované SCAFFOLDINGEM:
+    <table class="table">
         <thead>
             <tr>
                 <th>

@@ -26,7 +26,7 @@ namespace RazorPagesProj
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(); //controller pro api
             services.AddRazorPages().AddRazorRuntimeCompilation();
         }
 
@@ -53,7 +53,7 @@ namespace RazorPagesProj
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers(); //souvisí s controllerem pro api
                 endpoints.MapRazorPages();
             });
         }
